@@ -121,7 +121,7 @@
     </style>
 </head>
 <body>
-    <form>
+    <form action="#" onsubmit="funcsubmit(this)">
         <h1>THETA TAU POLL</h1>
         <input type="text" required id="question" placeholder="Enter your question:   "/>
         <label>
@@ -132,9 +132,10 @@
         </label>
         <div id="buttons">
             <div id="add"><i class="fa-solid fa-plus"></i></div>
-            <input type="submit" value="POLL"/>
+            <input type="submit" value="POLL"id="submit"/>
         </div>
     </form>
+
     <script>
         const labels = document.querySelectorAll('form label')
         labels.forEach(label => {
@@ -150,6 +151,27 @@
             document.querySelector('label:last-of-type').innerHTML = `<i class="fa-solid fa-gavel"></i>` + `<input type="text" required class="options" placeholder="..."/>`
         }        
         addBtn.addEventListener('click', addOption)
+        const submitBtn=document.getElementById('submit')
+        async function funcsubmit(e){
+            //e.preventDefault()
+            const question = document.getElementById('question').value
+            const options = Array.from(document.querySelectorAll('.options')).map(option => option.value)
+            const id=Math.floor(Math.random()*10000)
+
+
+            const res = await fetch('/', {
+                method: 'POST',
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    id,
+                    question,
+                    options
+                })
+            })
+            //console.log('testing submit button')
+        }
 
     </script>
 </body>
