@@ -6,7 +6,7 @@ app.use(express.static('public'))
 
 app.post('/', (req,res)=>{
 
-    res.status(200).send('ur mom is gay111')
+    res.status(200).send('testing')
     //res.send('ur mom is gay')
 })
 app.listen(port,()=> console.log(`server has started on port: ${port}`))
