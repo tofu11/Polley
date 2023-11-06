@@ -140,6 +140,17 @@
         labels.forEach(label => {
         label.innerHTML = `<i class="fa-solid fa-gavel"></i>` + label.innerHTML
 })
+
+        const addBtn = document.getElementById('add')
+        const form = document.querySelector('form')
+        const btns = document.getElementById('buttons')
+        function addOption() {
+            const newNode = document.createElement('label')
+            form.insertBefore(newNode, btns)
+            document.querySelector('label:last-of-type').innerHTML = `<i class="fa-solid fa-gavel"></i>` + `<input type="text" required class="options" placeholder="..."/>`
+        }        
+        addBtn.addEventListener('click', addOption)
+
     </script>
 </body>
 </html>
