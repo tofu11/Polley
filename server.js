@@ -4,7 +4,8 @@ const port= 1234
 //get request using HTTPS
 app.use(express.static('public'))
 
-app.get('/', (req,res)=>{
+app.post('/', (req,res)=>{
+
     res.status(200).send('ur mom is gay111')
     //res.send('ur mom is gay')
 })
